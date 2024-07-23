@@ -14,7 +14,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:src="@drawable/astrologer01"
+        android:src="@raw/profile"
         app:civ_border_width="0dp"
         android:padding="2dp"
         app:civ_border_color="@color/black"/>
@@ -23,10 +23,22 @@
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Name"
+        android:text="Sundar Smile"
         android:textColor="@color/black"
         android:textSize="18sp"
 android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+91 XXXXXXXXXX"
+        android:textColor="@color/black"
+
+        android:layout_gravity="center"
+
         android:layout_marginTop="8dp"
         android:gravity="center"/>
 </LinearLayout>

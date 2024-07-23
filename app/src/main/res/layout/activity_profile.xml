@@ -21,6 +21,8 @@
                 android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                app:title="Aditya Dhar Dwivedi"
+
                 app:collapsedTitleTextColor="@color/white"
 
                 app:contentScrim="@color/buttonColorOrenge"
@@ -37,54 +39,128 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
 
-                    android:src="@drawable/astrologer01"
+                    android:src="@raw/astro"
                    />
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:padding="20dp">
 
-                    <LinearLayout
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center_vertical"
+     android:layout_weight="1"
+        app:cardCornerRadius="20dp"
+        >
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/astrologer01" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+                    <TableLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="20dp"
-                        android:layout_gravity="end|center_vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Experience"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:padding="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="rate"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:padding="10dp"/>
+                          android:layout_gravity="center_vertical|end"
+                        android:layout_weight="1"
+                        >
 
-                    </LinearLayout>
+                        <!-- First Row -->
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="2dp"
+                                android:text="Expertise:"
+                                android:textStyle="bold"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="0dp"
+                                android:text="Vedic, Vastu, Tarot"
+                                 />
+                        </TableRow>
+
+                        <!-- Second Row -->
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="12dp"
+
+                                android:text="Experience:"
+                                android:textStyle="bold"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="4+ years"
+                                 />
+                        </TableRow>
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="12dp"
+
+                                android:text="Language:"
+                                android:textStyle="bold"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="Hindi, Engish"
+                                />
+                        </TableRow>
+                        <TableRow>
 
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="30dp"
-                    app:cardCornerRadius="20dp"
+                            <RatingBar
+                                android:id="@+id/ratingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:rating   = "4"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="2dp"
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:progressTint="@color/buttonColorYellow"
+                                />
 
-                    >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="  4.0 star"
+                                />
+                        </TableRow>
+
+                    </TableLayout>
 
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/astrologer01"
-                       />
 
-
-                </androidx.cardview.widget.CardView>
-
+</LinearLayout>
                 </FrameLayout>
 
                 <androidx.appcompat.widget.Toolbar
@@ -93,7 +169,19 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
 
-                   />
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/toolbar_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:padding="10dp"
+                        android:src="@drawable/outline_share_24"
+                        android:contentDescription="share Icon" />
+
+                </androidx.appcompat.widget.Toolbar>
 
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -111,9 +199,258 @@
                 android:padding="16dp">
 
                 <!-- Details content goes here -->
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="About Us :"
+    android:textSize="16sp"
+    android:textStyle="bold"
+
+    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstroAbout"
+                    android:layout_marginVertical="5dp"
+
+
+                    />
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reviews :"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true"
+
+
+                    >
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileimage"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@raw/profile"
+
+                            app:civ_border_color="#FF9800"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="12dp"
+                            android:text="Pankaj verma"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/profileimage"
+                            app:layout_constraintStart_toEndOf="@+id/profileimage"
+                            app:layout_constraintTop_toTopOf="@+id/profileimage" />
+
+                        <TextView
+
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="\'Vary good astrologer.... bahut Sahi prediction.... Thank you so much\'"
+                            android:textStyle="italic"
+                            android:ellipsize="end"
+android:scrollHorizontally="true"
+                            app:layout_constraintStart_toStartOf="@+id/textView5"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true"
+
+
+                    >
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileimage2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@raw/profile"
+
+                            app:civ_border_color="#FF9800"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+
+                            android:id="@+id/textView50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="12dp"
+                            android:text="sundar pichai"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/profileimage2"
+                            app:layout_constraintStart_toEndOf="@+id/profileimage2"
+                            app:layout_constraintTop_toTopOf="@+id/profileimage2" />
+
+                        <TextView
+
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="\'Vary good astrologer.... bahut Sahi  Thank you so much\'"
+                            android:textStyle="italic"
+                            android:ellipsize="end"
+                            android:scrollHorizontally="true"
+                            app:layout_constraintStart_toStartOf="@+id/textView50"
+                            app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true"
+
+
+                    >
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileimage20"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@raw/profile"
+
+                            app:civ_border_color="#FF9800"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+
+                            android:id="@+id/textView500"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="12dp"
+                            android:text="sundar pichai"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/profileimage20"
+                            app:layout_constraintStart_toEndOf="@+id/profileimage20"
+                            app:layout_constraintTop_toTopOf="@+id/profileimage20" />
+
+                        <TextView
+
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="\'Vary good astrologer.... bahut Sahi  Thank you so much\'"
+                            android:textStyle="italic"
+                            android:ellipsize="end"
+                            android:scrollHorizontally="true"
+                            app:layout_constraintStart_toStartOf="@+id/textView500"
+                            app:layout_constraintTop_toBottomOf="@+id/textView500" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/white"
+            app:fabCradleMargin="0dp"
+            app:fabCradleRoundedCornerRadius="0dp"
+
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Chat"
+                    android:drawableLeft="@drawable/outline_chat_24"
+                    android:drawableTint="@color/white"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/buttonColor"
+                    app:cornerRadius="10dp" android:layout_margin="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cornerRadius="10dp"
+                    android:backgroundTint="@color/buttonColorOrenge"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Call"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:drawableLeft="@drawable/outline_call_24"
+                    android:drawableTint="@color/white"
+                    />
+
+
+
 
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+        </com.google.android.material.bottomappbar.BottomAppBar>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
