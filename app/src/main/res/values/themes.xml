@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NakshatraTak" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="fontFamily">@font/opensans</item>
+        <item name="android:statusBarColor">#FF9800</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.NakshatraTak" parent="Base.Theme.NakshatraTak" />
+</resources>

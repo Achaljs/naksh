@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/outline_home_24"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/outline_person_24" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:title="Orders"
+        android:icon="@drawable/outline_person_24"/>
+    <item
+        android:id="@+id/transection"
+        android:title="Transection"
+        android:icon="@drawable/outline_person_24"/>
+    <item
+        android:id="@+id/Support"
+        android:title="Support"
+        android:icon="@drawable/outline_person_24"/>
+    <item
+        android:id="@+id/Pujanmart"
+        android:title="Pujanmart"
+        android:icon="@drawable/outline_person_24"/>
+    <item
+        android:id="@+id/Book"
+        android:title="Book a Pooja"
+        android:icon="@drawable/outline_person_24"/>
+    <item
+        android:id="@+id/setting"
+        android:title="Setting"
+        android:icon="@drawable/outline_settings_24"/>
+
+
+</menu>

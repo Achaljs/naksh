@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/outline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/bottom_chat"
+        android:icon="@drawable/outline_chat_24"
+        android:title="Chat" />
+    <item
+        android:id="@+id/bottom_call"
+        android:icon="@drawable/outline_call_24"
+        android:title="Call" />
+    <item
+        android:id="@+id/bottom_kundali"
+        android:icon="@drawable/outline_folded_hands_24"
+        android:title="Kundali" />
+
+</menu>
