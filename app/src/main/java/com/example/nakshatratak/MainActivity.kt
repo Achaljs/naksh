@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         lateinit var viewPager: ViewPager
         lateinit var dot1: DotsIndicator
-
+val can = "honey"
 
         lateinit var viewPagerAdapter: ViewPagerAdapter
 
