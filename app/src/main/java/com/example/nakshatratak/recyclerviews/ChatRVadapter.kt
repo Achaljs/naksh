@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nakshatratak.ChatActivity
 import com.example.nakshatratak.MainActivity
 import com.example.nakshatratak.Profile
 import com.example.nakshatratak.R
@@ -40,7 +41,10 @@ class ChatRVadapter(private val context: Context?, private val dataList: ArrayLi
         fun bind(data: Int) {
             imageView.setImageResource(data)
 
+button.setOnClickListener {
+    context?.startActivity(Intent(context,ChatActivity::class.java))
 
+}
             imageView.setOnClickListener {
 
                 context?.startActivity(Intent(context,Profile::class.java))

@@ -57,5 +57,6 @@ dependencies {
     implementation("com.android.support:multidex:1.0.3")
 
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
-
+    implementation("io.agora.rtm:rtm-sdk:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 }
