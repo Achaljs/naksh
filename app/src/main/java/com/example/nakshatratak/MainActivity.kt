@@ -48,6 +48,7 @@ finish()
         viewPager.adapter = viewPagerAdapter
         dot1.setViewPager(viewPager)
 
+
 //        viewPager = findViewById(R.id.idViewPager)
 //
 //        // on below line we are initializing

@@ -46,12 +46,15 @@ class HomeActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_home -> {
                     startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
                     drawerLayout.closeDrawers()
                     true
                 }
                 R.id.nav_profile -> {
                     startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
                     drawerLayout.closeDrawers()
+
                     true
                 }
                 else -> false

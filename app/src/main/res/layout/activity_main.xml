@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
 
             app:dotsColor="#FF9800"
-            app:dotsSize="15dp"
+            app:dotsSize="10dp"
             app:dotsSpacing="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/view_pager"

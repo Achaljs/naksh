@@ -70,7 +70,8 @@ android:nestedScrollingEnabled="true"
 android:padding="10dp"
     android:background="@color/white"
     android:layout_marginTop="2dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
     <TextView
         android:id="@+id/textServies"
         android:layout_width="wrap_content"
@@ -243,7 +244,7 @@ android:padding="10dp"
         app:cornerRadius="15dp"
         android:layout_weight="1"
         android:layout_marginHorizontal="10dp"
-        android:backgroundTint="#33000000"
+        android:backgroundTint="@color/buttonColorYellow"
         android:paddingVertical="20dp"
         app:strokeColor="@color/black"
         app:strokeWidth="1dp"

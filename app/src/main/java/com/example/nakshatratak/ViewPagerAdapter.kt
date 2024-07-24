@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
 
 class ViewPagerAdapter(private val context: Context?) : PagerAdapter() {
 
-    private val images = arrayOf(R.drawable.icon002, R.drawable.maching01, R.drawable.icon003, R.drawable.icon003)
+    private val images = arrayOf(R.drawable.phone_call_call_svgrepo_com, R.drawable.maching01, R.drawable.kundali01, R.drawable.panchang01)
     private val text = arrayOf("Talk/Chat with our Astrologers", "Free Kundali/Shaadi Matching", "Free Daily Horoscope", "Book a Pooja")
     private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 

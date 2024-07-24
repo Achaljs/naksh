@@ -161,13 +161,13 @@ class HomeFragment : Fragment() {
     private fun generateDummyData(): List<DataModel> {
         val dataList = mutableListOf<DataModel>()
         // Replace with your actual data population logic
-        dataList.add(DataModel(R.drawable.astrologer01, "Name", "100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "Item 2", "100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "Item 3","100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "pandit", "100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "Rahul", "100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "Rahul", "100/min"))
-        dataList.add(DataModel(R.drawable.astrologer01, "Rahul", "100/min"))
+        dataList.add(DataModel(R.raw.user, "Name", "100 rs /min"))
+        dataList.add(DataModel(R.raw.user, "Item 2", "100 rs /min"))
+        dataList.add(DataModel(R.raw.user, "Item 3","100 rs /min"))
+        dataList.add(DataModel(R.raw.user, "pandit", "100 rs /min"))
+        dataList.add(DataModel(R.raw.user, "pandit", "100 rs /min"))
+        dataList.add(DataModel(R.raw.user, "Pandit ji", "100/min"))
+        dataList.add(DataModel(R.raw.user, "Pnadit ji", "100/min"))
         // Add more items as needed
         return dataList
 

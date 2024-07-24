@@ -32,7 +32,7 @@
 
         <TextView
             android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="?actionBarSize"
+            android:layout_marginTop="?actionBarSize"
             android:textStyle="bold"
             android:layout_marginHorizontal="20dp"
             android:textSize="35sp"
@@ -44,7 +44,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/logonakshtra"
             />
 
 
@@ -71,7 +71,7 @@
             android:visibility="gone"/>
         <Button
 
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:id="@+id/login"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
@@ -102,7 +102,7 @@ android:drawableRight="@drawable/round_arrow_forward_24"
 
         <TextView
             android:layout_marginBottom="10dp"
-            android:text="Or SignIn As a Admin"
+            android:text="Or SignIn As a Astrologer"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@color/buttonColorYellow"
     android:gravity="center_vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sundar Smile"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
 android:layout_gravity="center"
         android:textStyle="bold"
@@ -35,7 +36,7 @@ android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+91 XXXXXXXXXX"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
 
         android:layout_gravity="center"
 

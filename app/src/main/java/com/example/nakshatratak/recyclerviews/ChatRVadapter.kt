@@ -14,7 +14,7 @@ import com.example.nakshatratak.R
 import com.google.android.material.button.MaterialButton
 import de.hdodenhof.circleimageview.CircleImageView
 
-class ChatRVadapter(private val context: Context?, private val dataList: List<DataModel>) :
+class ChatRVadapter(private val context: Context?, private val dataList: ArrayList<Int>) :
     RecyclerView.Adapter<ChatRVadapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -37,8 +37,8 @@ class ChatRVadapter(private val context: Context?, private val dataList: List<Da
 
         private val button:MaterialButton = itemView.findViewById(R.id.button2)
 
-        fun bind(data: DataModel) {
-            imageView.setImageResource(data.image)
+        fun bind(data: Int) {
+            imageView.setImageResource(data)
 
 
             imageView.setOnClickListener {

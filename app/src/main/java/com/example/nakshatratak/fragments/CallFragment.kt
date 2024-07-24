@@ -5,8 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nakshatratak.R
+import com.example.nakshatratak.recyclerviews.CallRVadapter
+import com.example.nakshatratak.recyclerviews.ChatRVadapter
 
+private lateinit var recyclerView: RecyclerView
+private lateinit var adapter: CallRVadapter
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -35,7 +41,29 @@ class CallFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_call, container, false)
+        val view =inflater.inflate(R.layout.fragment_call, container, false)
+
+
+         val list:ArrayList<Int> = ArrayList<Int>()
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+        list.add(R.raw.user)
+
+        recyclerView = view.findViewById(R.id.callrv)
+        recyclerView.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.VERTICAL, false)
+        adapter = CallRVadapter(context,list)
+        recyclerView.adapter = adapter
+
+
+
+
+        return view
     }
 
     companion object {

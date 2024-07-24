@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            openlogin() }, 5000)
+            openlogin() }, 2000)
 
 
 
