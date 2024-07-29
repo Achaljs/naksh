@@ -1,174 +1,263 @@
 package com.example.nakshatratak
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nakshatratak.recyclerviews.MessageAdapter
-import io.agora.rtm.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import io.agora.CallBack
+import io.agora.ConnectionListener
+import io.agora.MessageListener
+import io.agora.chat.ChatClient
+import io.agora.chat.ChatMessage
+import io.agora.chat.ChatOptions
+import io.agora.chat.TextMessageBody
+import java.util.List
+
 
 class ChatActivity : AppCompatActivity() {
-    private lateinit var rtmClient: RtmClient
-    private lateinit var rtmChannel: RtmChannel
-    private lateinit var messageAdapter: MessageAdapter
-    private val messages: MutableList<String> = mutableListOf()
-    private val appId = "2e6ee38668cb468a8cc3650900073607"
-    private val token = "YOUR_TEMP_TOKEN"
-    private val channelName = "testChannel"
+
+    private lateinit var agoraChatClient: ChatClient
+
+
+    private var isJoined = false
+    var editMessage: EditText? = null
+
+    private val appKey = "611107516#1374384"
+    private val token = "007eJxTYNi0sKt2QRbjzC3sC7/t/rq0XE1ee0Ia90GdDrHP66v5LoUoMBgaWqZZWKQamZkZmZokGaUkGRqYWJqamhsYmiWam5iZsLouT2sIZGTI+H2dgZGBFYgZGUB8FQajVAPL1MREA12TFPNkXUPD1DRdC0tLc10Tc/PUpKREM1Nzo2QAGxEmXg=="
+    private val userId = "user1" // Replace with a unique user ID
+    //private val channelName = "testChannel"
+
+    private fun showLog(text: String) {
+
+        runOnUiThread {
+            Toast.makeText(applicationContext, text, Toast.LENGTH_SHORT).show()
+        }
+
+        // Write log
+        Log.d("AgoraChatQuickStart", text)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        initUI()
-        initializeAgoraRtm()
-        joinChannel()
+        setupChatClient() // Initialize the ChatClient
+        setupListeners() // Add event listeners
+
+        // Set up UI elements for code access
+        editMessage = findViewById(R.id.etMessageText)
     }
 
-    private fun initUI() {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewMessages)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        messageAdapter = MessageAdapter(messages)
-        recyclerView.adapter = messageAdapter
 
-        val buttonSend: Button = findViewById(R.id.buttonSend)
-        val editTextMessage: EditText = findViewById(R.id.editTextMessage)
-
-        buttonSend.setOnClickListener {
-            val message = editTextMessage.text.toString()
-            if (message.isNotEmpty()) {
-                sendMessage(message)
-                editTextMessage.text.clear()
-            }
+    private fun setupChatClient() {
+        val options = ChatOptions()
+        if (appKey.isEmpty()) {
+            showLog("You need to set your AppKey")
+            return
         }
+        options.appKey = appKey // Set your app key in options
+        agoraChatClient = ChatClient.getInstance()
+        agoraChatClient.init(this, options) // Initialize the ChatClient
+        agoraChatClient.setDebugMode(true) // Enable debug info output
     }
 
-    private fun initializeAgoraRtm() {
-        try {
-            rtmClient = RtmClient.createInstance(this, appId, object : RtmClientListener {
-                override fun onConnectionStateChanged(state: Int, reason: Int) {
-                    Log.d("RTM", "Connection state changed: $state, Reason: $reason")
-                }
 
-                override fun onMessageReceived(message: RtmMessage, peerId: String) {
-                    runOnUiThread {
-                        messages.add("Received from $peerId: ${message.text}")
-                        messageAdapter.notifyDataSetChanged()
-                    }
-                }
+//    private fun initUI() {
+//        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewMessages)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        messageAdapter = MessageAdapter(messages)
+//        recyclerView.adapter = messageAdapter
+//
+//        val sendButton: Button = findViewById(R.id.buttonSend)
+//        val messageEditText: EditText = findViewById(R.id.editTextMessage)
+//
+//        sendButton.setOnClickListener {
+//            val messageText = messageEditText.text.toString()
+//            if (messageText.isNotEmpty()) {
+//                sendMessage(messageText)
+//                messageEditText.text.clear()
+//            }
+//        }
+//    }
 
-                override fun onImageMessageReceivedFromPeer(p0: RtmImageMessage?, p1: String?) {
-                    TODO("Not yet implemented")
-                }
 
-                override fun onFileMessageReceivedFromPeer(p0: RtmFileMessage?, p1: String?) {
-                    TODO("Not yet implemented")
-                }
+    private fun setupListeners() {
+        // Add message event callbacks
+        agoraChatClient.chatManager().addMessageListener(object : MessageListener {
 
-                override fun onMediaUploadingProgress(p0: RtmMediaOperationProgress?, p1: Long) {
-                    TODO("Not yet implemented")
-                }
 
-                override fun onMediaDownloadingProgress(p0: RtmMediaOperationProgress?, p1: Long) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onTokenExpired() {
-                    Log.d("RTM", "Token expired")
-                }
-
-                override fun onPeersOnlineStatusChanged(status: MutableMap<String, Int>?) {
-                    Log.d("RTM", "Peers online status changed: $status")
-                }
-
-                override fun onTokenPrivilegeWillExpire() {
-                    Log.d("RTM", "Token privilege will expire soon")
-                }
-            })
-        } catch (e: Exception) {
-            throw RuntimeException("RTM SDK init failed: ${Log.getStackTraceString(e)}")
-        }
-    }
-
-    private fun joinChannel() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                rtmChannel = rtmClient.createChannel(channelName, object : RtmChannelListener {
-                    override fun onMemberCountUpdated(count: Int) {}
-                    override fun onAttributesUpdated(attribute: List<RtmChannelAttribute>?) {}
-                    override fun onMessageReceived(message: RtmMessage, member: RtmChannelMember) {
+            override fun onMessageReceived(messages: MutableList<ChatMessage>?) {
+                if (messages != null) {
+                    for (message in messages) {
                         runOnUiThread {
-                            messages.add("Received from ${member.userId}: ${message.text}")
-                            messageAdapter.notifyDataSetChanged()
+                            displayMessage((message.body as TextMessageBody).message, false)
                         }
+                        showLog("Received a ${message.type.name} message from ${message.from}")
                     }
-
-                    override fun onImageMessageReceived(
-                        p0: RtmImageMessage?,
-                        p1: RtmChannelMember?
-                    ) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onFileMessageReceived(p0: RtmFileMessage?, p1: RtmChannelMember?) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onMemberJoined(member: RtmChannelMember) {
-                        Log.d("RTM", "${member.userId} joined the channel")
-                    }
-
-                    override fun onMemberLeft(member: RtmChannelMember) {
-                        Log.d("RTM", "${member.userId} left the channel")
-                    }
-                })
-
-                rtmChannel.join(object : ResultCallback<Void> {
-                    override fun onSuccess(responseInfo: Void?) {
-                        Log.d("RTM", "Joined channel successfully")
-                    }
-
-                    override fun onFailure(errorInfo: ErrorInfo) {
-                        Log.d("RTM", "Failed to join channel: ${errorInfo.errorCode}")
-                    }
-                })
-            } catch (e: Exception) {
-                Log.e("RTM", "Error joining channel: ${e.message}")
+                }
             }
-        }
+        })
+
+        // Add connection event callbacks
+        agoraChatClient.addConnectionListener(object : ConnectionListener {
+            override fun onConnected() {
+                showLog("Connected")
+            }
+
+            override fun onDisconnected(error: Int) {
+                if (isJoined) {
+                    showLog("Disconnected: $error")
+                    isJoined = false
+                }
+            }
+
+            override fun onLogout(errorCode: Int) {
+                showLog("User logging out: $errorCode")
+            }
+
+            override fun onTokenExpired() {
+                // The token has expired
+            }
+
+            override fun onTokenWillExpire() {
+                // The token is about to expire. Get a new token
+                // from the token server and renew the token.
+            }
+        })
     }
 
-    private fun sendMessage(message: String) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val rtmMessage = rtmClient.createMessage()
-            rtmMessage.text = message
-            rtmChannel.sendMessage(rtmMessage, object : ResultCallback<Void> {
-                override fun onSuccess(responseInfo: Void?) {
+
+    fun joinLeave(view: View) {
+        val button: Button = findViewById(R.id.btnJoinLeave)
+
+        if (isJoined) {
+            agoraChatClient.logout(true, object : CallBack {
+                override fun onSuccess() {
+                    showLog("Sign out success!")
                     runOnUiThread {
-                        messages.add("Sent: $message")
-                        messageAdapter.notifyDataSetChanged()
+                        button.text = "Join"
+                    }
+                    isJoined = false
+                }
+
+                override fun onError(code: Int, error: String) {
+                    showLog(error)
+                }
+            })
+        } else {
+            agoraChatClient.loginWithAgoraToken(userId, token, object : CallBack {
+                override fun onSuccess() {
+                    showLog("Signed in")
+                    isJoined = true
+                    runOnUiThread {
+                        button.text = "Leave"
                     }
                 }
 
-                override fun onFailure(errorInfo: ErrorInfo) {
-                    Log.d("RTM", "Failed to send message: ${errorInfo.errorCode}")
+                override fun onError(code: Int, error: String) {
+                    if (code == 200) { // Already joined
+                        isJoined = true
+                        runOnUiThread {
+                            button.text = "Leave"
+                        }
+                    } else {
+                        showLog(error)
+                    }
                 }
             })
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        lifecycleScope.launch(Dispatchers.IO) {
-            rtmChannel.leave(null)
-            rtmChannel.release()
-            rtmClient.release()
+
+
+    fun sendMessage(view: View) {
+        // Read the recipient name from the EditText box
+        val toSendName = findViewById<EditText>(R.id.etRecipient).text.toString().trim()
+        val content = editMessage?.text.toString().trim()
+
+        if (toSendName.isEmpty() || content.isEmpty()) {
+            showLog("Enter a recipient name and a message")
+            return
         }
+
+        // Create a ChatMessage
+        val message = ChatMessage.createTextSendMessage(content, toSendName)
+
+        // Set the message callback before sending the message
+        message.setMessageStatusCallback(object : CallBack {
+            override fun onSuccess() {
+                showLog("Message sent")
+                runOnUiThread {
+                    displayMessage(content, true)
+                    // Clear the box and hide the keyboard after sending the message
+                    editMessage?.setText("")
+                    val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                    inputMethodManager.hideSoftInputFromWindow(editMessage?.windowToken, 0)
+                }
+            }
+
+            override fun onError(code: Int, error: String) {
+                showLog(error)
+            }
+        })
+
+        // Send the message
+        agoraChatClient.chatManager().sendMessage(message)
     }
+
+    fun displayMessage(messageText: String, isSentMessage: Boolean) {
+        // Create a new TextView
+        val messageTextView = TextView(this).apply {
+            text = messageText
+            setPadding(10, 10, 10, 10)
+        }
+
+        // Set formatting
+        val messageList = findViewById<LinearLayout>(R.id.messageList)
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.MATCH_PARENT
+        ).apply {
+            if (isSentMessage) {
+                gravity = Gravity.END
+                messageTextView.setBackgroundColor(Color.parseColor("#DCF8C6"))
+                setMargins(100, 25, 15, 5)
+            } else {
+                messageTextView.setBackgroundColor(Color.WHITE)
+                setMargins(15, 25, 100, 5)
+            }
+        }
+
+        // Add the message TextView to the LinearLayout
+        messageList.addView(messageTextView, params)
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

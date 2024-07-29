@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
 
-                    android:src="@raw/astro"
+                    android:src="#F6E6D3"
                    />
 
 <LinearLayout

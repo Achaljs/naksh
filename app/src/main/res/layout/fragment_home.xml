@@ -65,122 +65,123 @@ android:nestedScrollingEnabled="true"
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-android:padding="10dp"
-    android:background="@color/white"
-    android:layout_marginTop="2dp"
-    android:layout_height="wrap_content"
-    >
-    <TextView
-        android:id="@+id/textServies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Our Astrology Services"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="2dp">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+                <TextView
+                    android:id="@+id/textServies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Our Astrology Services"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="start" />
 
-        android:backgroundTint="@color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/maching01"
-        app:layout_constraintBottom_toBottomOf="parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="8dp">
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton4"
-        app:layout_constraintVertical_bias="0.0" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="@color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/kundali01"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textServies" />
+                        <ImageButton
+                            android:id="@+id/imageButton2"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:backgroundTint="@color/white"
 
+                            android:src="@drawable/kundali01" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Free kundli"
+                            android:layout_gravity="center" />
+                    </LinearLayout>
 
-        android:text="Free kundli"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-        app:layout_constraintStart_toStartOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+                        <ImageButton
+                            android:id="@+id/imageButton3"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:backgroundTint="@color/white"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/panchang01" />
 
-        android:text="Panchang"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-        app:layout_constraintStart_toStartOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Panchang"
+                            android:layout_gravity="center" />
+                    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kundli"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        <ImageButton
+                            android:id="@+id/imageButton4"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:backgroundTint="@color/white"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/fastival01" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Festivals"
+                            android:layout_gravity="center" />
+                    </LinearLayout>
 
-        android:text="Festivals"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:backgroundTint="@color/white"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/maching01" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="@color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/panchang01"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kundli"
+                            android:layout_gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/fastival01"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
                 android:id="@+id/texthoroscope"
                 android:layout_width="match_parent"
@@ -207,7 +208,7 @@ android:padding="10dp"
                 android:scrollbars="none"
                 android:isScrollContainer="false"
                 android:focusable="false"
-                android:nestedScrollingEnabled="true"
+                android:nestedScrollingEnabled="false"
                 />
 
 <LinearLayout
@@ -270,16 +271,16 @@ android:padding="10dp"
 
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="20dp"
+
                 android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.denzcoskun.imageslider.ImageSlider
                     android:id="@+id/image_slider"
                     android:layout_width="wrap_content"
-                    android:layout_height="250dp"
+                    android:layout_height="200dp"
                     app:iss_auto_cycle="true"
-
                     app:iss_period="1000"
                     app:iss_delay="2000"
                     app:iss_text_align="CENTER"/>
