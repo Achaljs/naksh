@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
 
-                    android:src="@raw/astro"
+                    android:src="#F6E6D3"
                    />
 
 <LinearLayout
@@ -138,7 +138,6 @@
 
 
                             <RatingBar
-                                android:id="@+id/ratingBar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:rating   = "4"
@@ -173,7 +172,6 @@
 
 
                     <ImageView
-                        android:id="@+id/toolbar_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -404,7 +402,6 @@ android:scrollHorizontally="true"
 
 
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_app_bar"
             style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

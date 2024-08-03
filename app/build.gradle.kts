@@ -17,11 +17,18 @@ android {
             multiDexEnabled =  true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+
+            abiFilters.add("arm64-v8a")
+
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -35,6 +42,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+
 }
 
 
@@ -51,11 +61,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("com.airbnb.android:lottie:6.4.1")
-    implementation("com.tbuonomo:dotsindicator:5.0")
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("com.android.support:multidex:1.0.3")
+   // implementation(libs.lottie)
+    implementation(libs.dotsindicator)
+    implementation(libs.circleimageview)
 
-    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation(libs.imageslideshow)
 
+
+    implementation("io.agora.rtc:chat-sdk:1.2.1")
+    implementation ("io.agora.rtc:full-rtc-basic:4.3.2")
 }

@@ -18,18 +18,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:title="NaKshatra Tak"
+            app:title="Nakshatra Tak"
             android:background="@color/buttonColorYellow"
             app:titleTextColor="@color/black"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <ImageView
-                android:id="@+id/profile_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="end"
 
-                android:src="@drawable/outline_language_24"
+                android:src="@drawable/language_translation_svgrepo_com"
                 android:contentDescription="language"
                 android:layout_marginEnd="10dp"/>
 

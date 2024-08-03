@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
 
         // on below line we are setting adapter to our grid view.
         courseGRV.adapter = courseAdapter
-        setGridViewHeightBasedOnChildren(courseGRV, 9)
+        setGridViewHeightBasedOnChildren(courseGRV, 3)
         // on below line we are adding on item
         // click listener for our grid view.
         courseGRV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
@@ -131,7 +131,7 @@ class HomeFragment : Fragment() {
 
         var totalHeight = 0
         val items = adapter.count
-        val rows = (items + columns - 1) / columns
+        val rows = (items + columns - 50) / columns
 
         for (i in 0 until items) {
             val listItem = adapter.getView(i, null, gridView)
