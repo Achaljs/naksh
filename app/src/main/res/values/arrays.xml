@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="countries">
+        <item>Select Country</item>
+        <item>USA</item>
+        <item>India</item>
+        <item>Canada</item>
+    </string-array>
+
+    <string-array name="states">
+        <item>Select State</item>
+        <item>Uttar pradesh</item>
+        <item>Texas</item>
+        <item>New York</item>
+    </string-array>
+
+    <string-array name="cities">
+        <item>Select City</item>
+        <item>Los Angeles</item>
+        <item>Houston</item>
+        <item>New York City</item>
+    </string-array>
+</resources>

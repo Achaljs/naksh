@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="20dp"
+    android:scrollbars="none"
+    tools:context=".form">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Page Title and Subtitle -->
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Create Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/page_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="These details will be needed to calculate your daily horoscope and kundali."
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_title" />
+
+        <!-- Name Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/buttonColor"
+            app:boxBackgroundColor="#0DFF9800"
+            android:layout_marginTop="20dp"
+            app:boxStrokeWidthFocused="@dimen/cardview_compat_inset_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_subtitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Gender Field Heading -->
+        <TextView
+            android:id="@+id/gender_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
+
+        <!-- Gender Field -->
+        <RadioGroup
+            android:id="@+id/gender_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gender_heading"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/gender_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:buttonTint="@color/buttonColorOrenge"
+                android:text="Male"
+                android:textColor="#3F51B5"/>
+
+            <RadioButton
+                android:id="@+id/gender_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:textColor="#E91E63"
+                android:text="Female"/>
+
+            <RadioButton
+                android:id="@+id/gender_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"/>
+        </RadioGroup>
+
+        <!-- Date of Birth Field Heading -->
+        <TextView
+            android:id="@+id/dob_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gender_radio_group" />
+
+        <!-- Date of Birth Spinners -->
+        <LinearLayout
+            android:id="@+id/dob_spinners"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dob_heading"
+            android:layout_marginTop="8dp">
+
+            <!-- Day Spinner -->
+            <Spinner
+                android:id="@+id/day_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- Month Spinner -->
+            <Spinner
+                android:id="@+id/month_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- Year Spinner -->
+            <Spinner
+                android:id="@+id/year_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+        </LinearLayout>
+
+        <!-- Birth Time Field Heading -->
+        <TextView
+            android:id="@+id/birth_time_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birth Time"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dob_spinners" />
+
+        <!-- Birth Time Spinners -->
+        <LinearLayout
+            android:id="@+id/birth_time_spinners"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/birth_time_heading"
+            android:layout_marginTop="8dp">
+
+            <!-- Hour Spinner -->
+            <Spinner
+                android:id="@+id/hour_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- Minute Spinner -->
+            <Spinner
+                android:id="@+id/minute_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- AM/PM Spinner -->
+            <Spinner
+                android:id="@+id/ampm_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+        </LinearLayout>
+
+        <!-- Location Section Heading -->
+        <TextView
+            android:id="@+id/location_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/birth_time_spinners" />
+
+        <!-- Country, State, and City Fields -->
+        <LinearLayout
+            android:id="@+id/grid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_heading"
+            android:layout_marginTop="8dp">
+
+            <!-- Country Spinner -->
+            <Spinner
+                android:id="@+id/country_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- State Spinner -->
+            <Spinner
+                android:id="@+id/state_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+
+            <!-- City Spinner -->
+            <Spinner
+                android:id="@+id/city_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/spinner_background"
+                />
+        </LinearLayout>
+
+        <!-- Country Name and Address Fields -->
+        <TextView
+            android:id="@+id/additional_info_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Additional Information"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grid" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/country_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/buttonColor"
+            app:boxBackgroundColor="#0DFF9800"
+            app:boxStrokeWidthFocused="@dimen/cardview_compat_inset_shadow"
+            android:visibility="gone"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/additional_info_heading">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/country_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Country Name"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/buttonColor"
+            app:boxBackgroundColor="#0DFF9800"
+            android:layout_marginHorizontal="10dp"
+            app:boxStrokeWidthFocused="@dimen/cardview_compat_inset_shadow"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/country_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Create Profile"
+            android:elevation="10dp"
+            app:cornerRadius="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/buttonColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

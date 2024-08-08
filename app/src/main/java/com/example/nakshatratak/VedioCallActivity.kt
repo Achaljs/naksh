@@ -8,6 +8,7 @@ import android.view.SurfaceView
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -18,6 +19,7 @@ import io.agora.rtc2.*
 import io.agora.rtc2.RtcEngineConfig
 import io.agora.rtc2.video.VideoCanvas
 import io.agora.rtc2.video.VideoEncoderConfiguration
+import org.w3c.dom.Text
 
 
 class VedioCallActivity : AppCompatActivity() {
@@ -27,10 +29,11 @@ class VedioCallActivity : AppCompatActivity() {
     private lateinit var joinButton: Button
     private lateinit var localView: FrameLayout
 
+    private lateinit var text:TextView
 
     private val appId = "4a6a09e91c0e4c488512b3f1cd7ff880"
     private val channelName = "testchannel"
-    private var token = "007eJxTYAiIn8+x8oLo2mixiEPaJ2XPPpJ5FGDww3JxxOWV4TP3txkqMBgaWqZZWKQamZkZmZokGaUkGRqYWJqamhsYmiWam5iZLG1Zk9YQyMhwtKiPmZEBAkF8boaS1OKS5IzEvLzUHAYGAPO7IZ0="
+    private var token = "007eJxTYOh8q9ww2TlmX4rWXluxZSGvD376nvmO1W3yVVe/aRJxNpcVGAwNLdMsLFKNzMyMTE2SjFKSDA1MLE1NzQ0MzRLNTcxM1p7amNYQyMiwcRkzCyMDBIL43AwlqcUlyRmJeXmpOQwMADK0Igw="
     var appCertificate = "4a6a09e91c0e4c488512b3f1cd7ff880"
     var expirationTimeInSeconds = 3600
 
@@ -98,7 +101,7 @@ Manifest.permission.RECORD_AUDIO,
         remoteView = findViewById(R.id.remote_video_view_container)
         joinButton = findViewById(R.id.btn_start_call)
         localView = findViewById(R.id.local_video_view_container)
-
+        text= findViewById<TextView>(R.id.waiting)
 
         if (!checkSelfPermission()) {
             ActivityCompat.requestPermissions(this, REQUESTED_PERMISSIONS, PERMISSION_REQ_ID);
@@ -124,7 +127,8 @@ Manifest.permission.RECORD_AUDIO,
             showMessage("Remote user joined $uid")
 
             // Set the remote video view
-            runOnUiThread { setupRemoteVideo(uid) }
+            runOnUiThread { setupRemoteVideo(uid)
+            text.visibility= View.GONE}
         }
 
         override fun onJoinChannelSuccess(channel: String, uid: Int, elapsed: Int) {
@@ -166,6 +170,7 @@ Manifest.permission.RECORD_AUDIO,
 
 
     fun joinChannel(view: View) {
+
         if (checkSelfPermission()) {
             val options = ChannelMediaOptions()
 
@@ -173,9 +178,11 @@ Manifest.permission.RECORD_AUDIO,
             options.clientRoleType = Constants.CLIENT_ROLE_BROADCASTER
             setupLocalVideo()
             localSurfaceView!!.visibility = View.VISIBLE
+
             agoraEngine!!.startPreview()
             agoraEngine!!.joinChannel(token, channelName, uid, options)
             joinButton.visibility=View.GONE
+            text.visibility= View.VISIBLE
         } else {
             Toast.makeText(applicationContext, "Permissions was not granted", Toast.LENGTH_SHORT)
                 .show()
@@ -185,6 +192,7 @@ Manifest.permission.RECORD_AUDIO,
     fun leaveChannel(view: View) {
         if (!isJoined) {
             showMessage("Join a channel first")
+            finish()
         } else {
             agoraEngine!!.leaveChannel()
             showMessage("You left the channel")

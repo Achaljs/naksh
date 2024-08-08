@@ -18,7 +18,7 @@ val button:Button = findViewById(R.id.login)
 
         button.setOnClickListener {
 
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, form::class.java))
                 finish()
 
         }

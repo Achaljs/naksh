@@ -2,63 +2,82 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ECE5DD">
 
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonColorYellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_alignParentTop="true"
+        app:title="Astrologer"
+        />
+
+    <TextView
+        android:id="@+id/typingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/materialToolbar2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Typing..."
+        android:visibility="gone"
+        android:textColor="#000000" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/typingIndicator"
+        android:layout_above="@id/etMessageText"
+        android:background="#ECE5DD" />
     <Button
         android:id="@+id/btnJoinLeave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="5dp"
+        android:backgroundTint="@color/buttonColorOrenge"
+
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
         android:onClick="joinLeave"
-        android:text="Join" />
-
-    <EditText
-        android:id="@+id/etRecipient"
-        android:layout_width="match_parent"
+        android:text="Join"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/btnJoinLeave"
-        android:layout_alignTop="@id/btnJoinLeave"
-        android:layout_toStartOf="@id/btnJoinLeave"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="#FFFFFF"
-        android:hint="Enter recipient user ID" />
+        android:layout_centerInParent="true"
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/btnSendMessage"
-        android:layout_below="@id/etRecipient"
-        android:background="#ECE5DD">
-
-        <LinearLayout
-            android:id="@+id/messageList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-        </LinearLayout>
-    </ScrollView>
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/etMessageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="20dp"
         android:layout_toStartOf="@id/btnSendMessage"
-        android:layout_alignBottom="@id/btnSendMessage"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="#FFFFFF"
-        android:hint="Message" />
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corner"
+        android:hint="Message"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/btnSendMessage"
-        android:layout_width="50dp"
-        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:text="Send"
+        android:backgroundTint="@color/buttonColorOrenge"
+        android:drawableRight="@drawable/round_arrow_forward_24"
         android:onClick="sendMessage"
-        android:text=">>" />
+        />
 </RelativeLayout>
