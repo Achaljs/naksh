@@ -1,5 +1,6 @@
 package com.example.nakshatratak
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -143,6 +144,8 @@ class form : AppCompatActivity() {
 
             // Handle form submission
             // For example, you could validate inputs or send them to a server
+
+            startActivity(Intent(this@form,HomeActivity::class.java))
         }
     }
 }
