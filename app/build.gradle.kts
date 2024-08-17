@@ -72,4 +72,10 @@ dependencies {
 
     implementation(libs.chat.sdk)
     implementation (libs.full.rtc.basic)
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0") // Latest version
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0") // Latest version
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0") // Latest version
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0") // For logging network requests
+    implementation ("com.github.gabriel-TheCode:AestheticDialogs:1.3.8")
 }

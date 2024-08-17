@@ -2,6 +2,7 @@ package com.example.nakshatratak
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceView
@@ -13,18 +14,27 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.nakshatratak.utility.NotificationUtil
 import io.agora.rtc2.ChannelMediaOptions
 import io.agora.rtc2.IRtcEngineEventHandler
 import io.agora.rtc2.*
 import io.agora.rtc2.RtcEngineConfig
 import io.agora.rtc2.video.VideoCanvas
 import io.agora.rtc2.video.VideoEncoderConfiguration
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody
+import org.json.JSONObject
 import org.w3c.dom.Text
+import java.io.OutputStreamWriter
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 class VedioCallActivity : AppCompatActivity() {
 
-
+    private val TAG = "SendNotificationActivity"
     private lateinit var remoteView: FrameLayout
     private lateinit var joinButton: Button
     private lateinit var localView: FrameLayout
@@ -171,22 +181,25 @@ Manifest.permission.RECORD_AUDIO,
 
     fun joinChannel(view: View) {
 
-        if (checkSelfPermission()) {
-            val options = ChannelMediaOptions()
+//        if (checkSelfPermission()) {
+//            val options = ChannelMediaOptions()
+//
+//            options.channelProfile = Constants.CHANNEL_PROFILE_COMMUNICATION
+//            options.clientRoleType = Constants.CLIENT_ROLE_BROADCASTER
+//            setupLocalVideo()
+//            localSurfaceView!!.visibility = View.VISIBLE
+//
+//            agoraEngine!!.startPreview()
+//            agoraEngine!!.joinChannel(token, channelName, uid, options)
+//            joinButton.visibility=View.GONE
+//            text.visibility= View.VISIBLE
 
-            options.channelProfile = Constants.CHANNEL_PROFILE_COMMUNICATION
-            options.clientRoleType = Constants.CLIENT_ROLE_BROADCASTER
-            setupLocalVideo()
-            localSurfaceView!!.visibility = View.VISIBLE
+        sendNotification("dqJz-R6fQNy_sAKhoqDNc3:APA91bEprKlLkJsbjvumVZlFKWwMXoy-Pkh4RbB74vg2UJdE0FVKfKwRj-_ZeX2U0f3u2mXKFVIj7pZS2ntg_MqbqEe6vFvqoQNdo8DI7Dy5c-WSPBL1N5vrN61i5Rb21MJqZk4mGYIq", "Join Video Call", "You have an invitation to join a video call.")
 
-            agoraEngine!!.startPreview()
-            agoraEngine!!.joinChannel(token, channelName, uid, options)
-            joinButton.visibility=View.GONE
-            text.visibility= View.VISIBLE
-        } else {
-            Toast.makeText(applicationContext, "Permissions was not granted", Toast.LENGTH_SHORT)
-                .show()
-        }
+//        } else {
+//            Toast.makeText(applicationContext, "Permissions was not granted", Toast.LENGTH_SHORT)
+//                .show()
+//        }
     }
 
     fun leaveChannel(view: View) {
@@ -201,9 +214,24 @@ Manifest.permission.RECORD_AUDIO,
             isJoined = false
             finish()
         }
+
     }
 
+    private fun sendNotification(token: String, title: String, body: String) {
+
+        NotificationUtil.sendNotification(
+            token = token,
+            title = title,
+            body = body,
+            targetActivity = "com.example.nakshatratakastrologer.VedioCallActivity"
+        )
 
 
+    }
 
 }
+
+
+
+
+

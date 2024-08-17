@@ -11,67 +11,40 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
-    private val TAG = "FCM"
-
-    override fun onNewToken(token: String) {
-        super.onNewToken(token)
-        Log.d(TAG, "New token: $token")
-        // Send the token to your server if needed
+    companion object {
+        private const val TAG = "MyFirebaseMsgService"
+        private const val CHANNEL_ID = "notification_channel"
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        super.onMessageReceived(remoteMessage)
+        Log.d(TAG, "From: ${remoteMessage.from}")
 
-        // Log the message sender
-        Log.d(TAG, "Message received from: ${remoteMessage.from}")
-
-        // Handle notification payload
+        // Check if message contains a notification payload.
         remoteMessage.notification?.let {
-            Log.d(TAG, "Notification Title: ${it.title}")
-            Log.d(TAG, "Notification Body: ${it.body}")
-            showNotification(it.title, it.body)
-        }
-
-        // Handle data payload
-        remoteMessage.data.isNotEmpty().let {
-            Log.d(TAG, "Data Payload: ${remoteMessage.data}")
-            // Process the data payload as needed
+            sendNotification(it.title, it.body)
         }
     }
 
-    private fun showNotification(title: String?, message: String?) {
-        val channelId = "default_channel_id"
-        val channelName = "Default Channel"
-        val notificationId = 0 // Unique ID for each notification
-
-        // Create an intent to open your app when the notification is clicked
+    private fun sendNotification(title: String?, messageBody: String?) {
         val intent = Intent(this, VedioCallActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent,
             PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
 
-        // Create notification builder
-        val notificationBuilder = NotificationCompat.Builder(this, channelId)
+        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.language_translation_svgrepo_com) // Replace with your own icon
             .setContentTitle(title)
-            .setContentText(message)
-            .setSmallIcon(R.drawable.language_translation_svgrepo_com) // Replace with your app's icon
+            .setContentText(messageBody)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
 
-        // Get NotificationManager
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        // Create notification channel for Android Oreo and above
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+            val channel = NotificationChannel(CHANNEL_ID, "Notification Channel", NotificationManager.IMPORTANCE_DEFAULT)
             notificationManager.createNotificationChannel(channel)
         }
-
-        // Show the notification
-        notificationManager.notify(notificationId, notificationBuilder.build())
+        notificationManager.notify(0, notificationBuilder.build())
     }
 }
