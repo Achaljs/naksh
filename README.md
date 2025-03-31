@@ -1,4 +1,4 @@
-![Nakshatra Tak](banner.png)
+# ![Nakshatra Tak Banner](banner-image-url)
 # 🌟 Nakshatra Tak
 
 Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and International users. It offers features like **Kundali generation, matchmaking, live chat, live video calls, daily horoscopes, and secure user authentication**. The platform integrates **Agora SDK** for real-time communication and **PhonePe Payment Gateway** for seamless transactions.
@@ -30,14 +30,16 @@ Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and 
 
 ## 📸 Screenshots
 
-| Home Screen | Kundali Generation | Live Chat |
-|------------|------------------|----------|
-| ![Home](screenshots/Home.jpg) | ![Kundali](screenshots/kundali.png) | ![Chat](screenshots/chat.png) |
+<p align="center">
+  <img src="screenshots/Home.jpg" alt="Home" width="30%">
+  <img src="screenshots/" alt="Search" width="30%">
+    <img src="screenshots/Screenshot_2023-08-21-13-15-39-655_com.example.mywallpapers.jpg" alt="Apply" width="30%">
+</p>
 
-| Live Video Call | Payments |
-|----------------|---------|
-| ![Video Call](screenshots/video_call.png) | ![Payment](screenshots/payment.png) |
-
+<p align="center">
+  <img src="screenshots/Screenshot_2023-08-21-13-14-07-188_com.example.mywallpapers.jpg" alt="Categories" width="30%">
+  <img src="screenshots/Screenshot_2023-08-21-13-20-15-194_com.example.mywallpapers.jpg" alt="Favorites" width="30%">
+</p>
 
 
 ---
