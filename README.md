@@ -43,7 +43,7 @@ Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and 
 
 ## 🚀 Installation
 
-Playstory link will be live soon!
+Playstore link will be live soon!..........
 
 ---
 
