@@ -1,4 +1,4 @@
-# ![Nakshatra Tak Banner](screenshots/headingLOGO.png)
+# ![Nakshatra Tak Banner](<img src="screenshots/Home.jpg" alt="Home" height="40%">)
 # 🌟 Nakshatra Tak
 
 Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and International users. It offers features like **Kundali generation, matchmaking, live chat, live video calls, daily horoscopes, and secure user authentication**. The platform integrates **Agora SDK** for real-time communication and **PhonePe Payment Gateway** for seamless transactions.
