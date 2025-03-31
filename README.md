@@ -35,14 +35,11 @@ Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and 
 
 <p align="center">
   <img src="screenshots/Home.jpg" alt="Home" width="30%">
-  <img src="screenshots/" alt="Search" width="30%">
-    <img src="screenshots/Screenshot_2023-08-21-13-15-39-655_com.example.mywallpapers.jpg" alt="Apply" width="30%">
+  <img src="screenshots/Screenshot_2024-10-10-12-56-07-458_com.example.nakshatratak.jpg" alt="Search" width="30%">
+    <img src="screenshots/Screenshot_2024-10-10-12-56-22-694_com.example.nakshatratak.jpg" alt="Apply" width="30%">
 </p>
 
-<p align="center">
-  <img src="screenshots/Screenshot_2023-08-21-13-14-07-188_com.example.mywallpapers.jpg" alt="Categories" width="30%">
-  <img src="screenshots/Screenshot_2023-08-21-13-20-15-194_com.example.mywallpapers.jpg" alt="Favorites" width="30%">
-</p>
+
 
 
 ---
