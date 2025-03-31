@@ -1,5 +1,5 @@
 <p align="center">
- <img src="screenshots/headingLOGO.png" alt="Home" height="10%">
+ <img src="screenshots/headingLOGO.png" alt="Home" height="10%" width="30%">
 </p>
 
 # 🌟 Nakshatra Tak
