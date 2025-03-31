@@ -32,7 +32,7 @@ Nakshatra Tak is a modern astrology platform built in **Kotlin** for Indian and 
 
 | Home Screen | Kundali Generation | Live Chat |
 |------------|------------------|----------|
-| ![Home](screenshots/home.png) | ![Kundali](screenshots/kundali.png) | ![Chat](screenshots/chat.png) |
+| ![Home](screenshots/Home.jpg) | ![Kundali](screenshots/kundali.png) | ![Chat](screenshots/chat.png) |
 
 | Live Video Call | Payments |
 |----------------|---------|
